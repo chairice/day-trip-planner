@@ -1,0 +1,65 @@
+[project]
+name = "planner"
+default-app = "web"
+jac-version = "==0.37.23"
+
+# One workspace, laid out like jaclang_org: shared logic lives in core/,
+# and each app is an entry module over it. Add more apps (a cli, a mobile
+# app) by declaring them here and importing from core.planner.
+[apps.web]
+kind = "web-app"
+entry-point = "web.main"
+
+# The trip planner backend: walkers + per-user graph + Claude calls. As a
+# service app it owns one store that web, mobile and CLI all bridge to.
+# `jac run` colocates it in the web server's process.
+[apps.trips]
+kind = "service"
+entry-point = "core.trip.walkers"
+
+# A mobUI (React Native) client over the same walkers, bridged over HTTP.
+[apps.mobile]
+kind = "mobile"
+entry-point = "mobile.main"
+
+# A terminal client: `jac run cli -- <command>`.
+[apps.mobile.dependencies.npm]
+react-native-web = "^0.21.2"
+
+[apps.cli]
+kind = "cli"
+entry-point = "cli.main"
+
+[apps.cli.check.lint]
+ignore = ["no-print"]
+
+[test]
+directories = ["core", "web", "cli"]
+
+[dependencies.npm]
+react = "^19.2.0"
+react-dom = "^19.2.0"
+react-router-dom = "^6.22.0"
+react-error-boundary = "^5.0.0"
+"@tanstack/react-form" = "^1.33.0"
+zod = "^4.3.6"
+
+[dependencies.npm.dev]
+vite = "^6.4.1"
+"@vitejs/plugin-react" = "^4.7.0"
+typescript = "^5.3.3"
+"@types/react" = "^19.2.0"
+"@types/react-dom" = "^19.2.0"
+
+# Every `by llm()` call in the workspace uses Claude. Set ANTHROPIC_API_KEY
+# before `jac run`; without it the trip planner falls back to its built-in
+# sample itineraries.
+[byllm.model]
+default_model = "anthropic/claude-sonnet-5-5"
+
+[client.app_meta_data]
+title = "Day Trip"
+description = "Plan, save, and check off one-day city trips: landmarks, food spots, and what to wear."
+
+[dependencies]
+byllm = ">=0.0.0"
