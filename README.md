@@ -1,7 +1,7 @@
 # DAY//TRIP — a day-trip planner in Jac
 
 **Name:** Casey Feng
-**UMID:** _(fill in)_
+**UMID:** 68967179
 
 DAY//TRIP plans a one-day trip in a city, hour by hour, and keeps it with you
 while you travel. Pick a city, a date, the hours you have (8 AM–10 PM,
