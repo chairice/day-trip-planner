@@ -2,7 +2,7 @@
 
 import from "@jac/runtime" { jacLogout, jacIsLoggedIn }
 
-import from web.planner.AuthForm { AuthForm }
+import from .AuthForm { AuthForm }
 import from .TripApp { TripApp }
 import from .Logo { Logo }
 import from .theme { apply_season }

@@ -5,7 +5,7 @@ jac-version = "==0.37.23"
 
 # One workspace, laid out like jaclang_org: shared logic lives in core/,
 # and each app is an entry module over it. Add more apps (a cli, a mobile
-# app) by declaring them here and importing from core.planner.
+# app) by declaring them here and importing from core.trip.
 [apps.web]
 kind = "web-app"
 entry-point = "web.main"

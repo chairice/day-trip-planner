@@ -319,26 +319,28 @@ select.blank { cursor: pointer; text-transform: lowercase; }
 .bar { height: 3px; background: var(--rule); margin-top: 6px; }
 .bar-fill { height: 100%; background: var(--accent); }
 
-/* Sign-in page: restyle the shared auth form as an index card */
+/* Sign-in page: the auth form as an index card */
 .trip-auth .auth-hero { padding: 64px 0 8px; }
 .auth-lede { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink-soft); margin: 18px 0 0; }
-.trip-auth .auth-container { min-height: 0; display: block; padding: 40px 0 80px; background: none; font-family: var(--sans); }
-.trip-auth .auth-card {
-  max-width: 420px; padding: 28px; border-radius: 0; background: var(--paper-2);
-  box-shadow: none; border-top: 3px solid var(--ink);
+.auth-container { padding: 40px 0 80px; font-family: var(--sans); }
+.auth-card { width: 100%; max-width: 420px; padding: 28px; background: var(--paper-2); border-top: 3px solid var(--ink); }
+.auth-subtitle { margin: 0 0 24px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.auth-error { margin: 0 0 16px; padding: 4px 10px; border-left: 2px solid var(--accent); color: var(--accent); font-size: 14px; }
+.form-field { margin-bottom: 16px; }
+.form-label { display: block; margin-bottom: 6px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.auth-input {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--ink); border-radius: 0;
+  padding: 8px 0; font-family: var(--sans); font-size: 16px; color: var(--ink); outline: none;
 }
-.trip-auth .auth-title { display: none; }
-.trip-auth .auth-subtitle { text-align: left; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
-.trip-auth .form-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
-.trip-auth .auth-input {
-  background: transparent; border: none; border-bottom: 1px solid var(--ink); border-radius: 0;
-  padding: 8px 0; font-family: var(--sans); color: var(--ink); outline: none;
+.auth-input:focus { border-bottom-color: var(--accent); }
+.auth-submit {
+  width: 100%; margin-top: 16px; padding: 12px; border: none; border-radius: 0;
+  background: var(--ink); color: var(--paper); font-size: 16px; font-weight: 500; box-shadow: 4px 4px 0 var(--accent);
 }
-.trip-auth .auth-input:focus { border-bottom-color: var(--accent); }
-.trip-auth .auth-submit { background: var(--ink); color: var(--paper); border-radius: 0; font-weight: 500; margin-top: 16px; box-shadow: 4px 4px 0 var(--accent); }
-.trip-auth .auth-error { background: none; border: none; border-left: 2px solid var(--accent); border-radius: 0; color: var(--accent); padding: 4px 10px; }
-.trip-auth .auth-toggle { text-align: left; }
-.trip-auth .auth-toggle-btn { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+.auth-submit:disabled { opacity: .6; }
+.auth-toggle { margin-top: 16px; }
+.auth-toggle-text { color: var(--muted); font-size: 14px; }
+.auth-toggle-btn { background: none; border: none; padding: 0; font-size: 14px; font-weight: 500; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Time-window presets sit under the fine-print fields */
 .quick.windows { margin: 18px 0 0; }

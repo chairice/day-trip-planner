@@ -69,7 +69,6 @@ def:pub AuthForm(onAuth: Callable[[], None]) -> JsxElement {
     return
         <div class="auth-container">
             <div class="auth-card">
-                <h1 class="auth-title">Day Trip</h1>
                 <p class="auth-subtitle">
                     {("Create your account" if isSignup else "Welcome back")}
                 </p>
